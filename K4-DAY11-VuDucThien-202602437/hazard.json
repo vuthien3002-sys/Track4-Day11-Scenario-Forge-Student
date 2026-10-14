@@ -1,0 +1,47 @@
+{
+ "format": "avsim-studio/1",
+ "params": {
+  "cutT0": 6.5,
+  "cutDur": 2.4,
+  "cutV": 15.0,
+  "pedT0": 11,
+  "pedV": 1.45,
+  "busGo": 17,
+  "cutDs": -4.0,
+  "tgT": 0.9,
+  "mu": 0.8,
+  "cutGap": 12,
+  "cutBrake": 0.0,
+  "pedGap": 4.5,
+  "pedLook": 1,
+  "civil": true
+ },
+ "policy": {},
+ "hazards": [
+  {
+   "x": 140.0,
+   "side": "S",
+   "v": 1.4,
+   "t0": 0.0,
+   "trig": 40.0,
+   "type": "ped"
+  }
+ ],
+ "ego": "planner",
+ "space": {
+  "h0_x": [
+   128,
+   160
+  ],
+  "h0_v": [
+   1.0,
+   1.8
+  ],
+  "h0_trig": [
+   20,
+   60
+  ]
+ },
+ "exposure": 0.02,
+ "why": "Người xuống xe buýt rồi băng thẳng qua đường ngay sau vạch (không quay lại vạch), từ lề phía trạm xe buýt. h0_x [128,160]: điểm băng cách tâm vạch (x=122) 6-38 m, tức đoạn người đi bộ thường đi tiếp thay vì vòng lại vạch; xa hơn ~40 m thì họ ít khi đi bộ thêm, gần hơn 6 m là đã ở trên vạch. h0_v [1.0,1.8] m/s: tốc độ đi bộ thường, 1.0 ~ người già/chậm (MUTCD 2009 dùng 3.5 ft/s = 1.07 m/s để tính đèn), 1.2-1.5 trung bình người lớn (Knoblauch et al. 1996, FHWA-RD-95-202), 1.8 = đi vội nhưng chưa chạy (<2.5 m/s, luật khả thi). h0_trig [20,60] m: người bước ra khi xe ta còn cách 20-60 m, tức khe thời gian ~2-5 s ở 10-12.5 m/s; người băng ẩu thường chấp nhận khe ngắn hơn khe an toàn 4-6 s. exposure 0.02/chuyến: ước lượng Fermi, không phải số đo: xác suất xe ta đi qua đoạn này trong ~1 phút sau khi xe buýt trả khách (buýt 10 phút/chuyến -> ~0.1) x có khách xuống (~0.8) x tỉ lệ khách băng ngang ngoài vạch (~0.25) ~= 0.02. Cần thay bằng đếm thực địa tại trạm (xem câu 7)."
+}
